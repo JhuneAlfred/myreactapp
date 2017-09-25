@@ -1,0 +1,20 @@
+query testQuery {
+  graphQLHub
+  github {
+    repo (name: "myreactapp", ownerUsername: "jhunealfred") {
+      commits {
+        message
+        date
+      }
+    }
+    user (username: "jhunealfred") {
+      id
+      company
+      avatar_url
+      repos  {
+        id
+        name
+      }
+    }
+  }
+}

@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+//import {CardLostStolen} from './cardLostStolen'
+import {CardHome} from './cardHome'
 import './App.css';
+import {NavLink, Route, Switch} from 'react-router-dom'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          Hello, welcome to my first react app!
-        </p>
-      </div>
-    );
-  }
+export default () => {
+  return (
+    <div className="App">
+      <Header/>
+      <Switch>
+        <Route path="/card-home"
+               component={CardHome}/>
+      
+
+      </Switch>
+    </div>
+  );
 }
 
-export default App;
+const Header = () => (
+  <div className="header">
+    <h2>Safe Credit Union</h2>
+    <div className="quick-links">
+      <NavLink to="/card-home">Card home</NavLink>
+      <NavLink to="/card-lost-stolen">Report card lost or stolen</NavLink>
+    </div>
+  </div>
+)
